@@ -1,53 +1,28 @@
-package com.example.project_functions_swich;
+package com.example.pojo;
 
-import java.util.Scanner;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class HelloApplication {
+import java.io.IOException;
 
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        printAnyString("hi you are the best program, the progra has some option such as: A,B and C");
-        printAnyString("please type any option ");
-        String readingSring = scanner.nextLine();
-        switch (readingSring.toLowerCase()){
-            case "a":
-                printAnyString("Now you are in sum program,it is necessary to type two number,let us go ");
-                printAnyString("Typing the fist number");
-                int numberOne = scanner.nextInt();
-                printAnyString("Typing the second number");
-                int numberTwo = scanner.nextInt();
-                int sumResult = sumNumber(numberOne,numberTwo);
-                printAnyString("The result of sum is " + sumResult);
+public class HelloApplication  {
 
-                break;
-            case "b":
-                printAnyString("You are now in the program to print country ");
-                printAnyString("Typing the country:");
-                String country = scanner.nextLine();
-                printAnyString("The result of country is " + country);
-                break;
-
-            case "c":
-                printAnyString("Now you are in the program to find the cosine of a number ");
-                printAnyString("Enter a number:");
-                int number = scanner.nextInt();
-                double cosenresult = Coseno(number);
-                printAnyString("The result of cosen is " +cosenresult);
+    public static void main(String[] args) {
+        String user,pass, repass;
+        user="Jgusina";
+        pass= "Jona1818";
+        repass="Jona1818";
 
 
+        MiHelper h = new MiHelper();
+
+        try{
+            h.validarPassdword(pass,repass);
+        }catch (CustomException e){
+            e.printStackTrace();
         }
 
-    }
-    public static void printAnyString(String message) {
-        System.out.println(message);
-    }
-    public static int sumNumber(int numberOne, int numberTwo){
-        int result= numberOne+numberTwo;
-        return result;
-        //return numberOne+numberTwo
-    }
-    public static double Coseno (int number){
-        double cosValue = Math.cos(number);
-        return cosValue;
     }
 }
